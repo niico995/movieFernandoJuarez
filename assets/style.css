@@ -139,7 +139,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 455px;
+    height: 500px;
     margin: 10px 0;
     border-radius: 10px;
     box-shadow: 2px 4px 10px var(--principal);
