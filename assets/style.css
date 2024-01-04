@@ -139,7 +139,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 425px;
+    height: 455px;
     margin: 10px 0;
     border-radius: 10px;
     box-shadow: 2px 4px 10px var(--principal);
@@ -203,9 +203,9 @@ footer {
     }
 
     
-.card {
-    height: 455px;
-}
+    .card {
+        height: 425px;
+    }
 }
 
 @media (min-width: 1023px) {
