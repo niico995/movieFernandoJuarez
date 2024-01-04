@@ -201,6 +201,11 @@ footer {
     #moviesList {
         width: 90%;
     }
+
+    
+.card {
+    height: 455px;
+}
 }
 
 @media (min-width: 1023px) {
