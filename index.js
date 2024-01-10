@@ -43,42 +43,33 @@ lupa.addEventListener('blur',function(e){
 
 //Buscador por genero
 
-function doubleSearch(movies,genre,name){
-    return movies.filter(movie => movie.name === name && movie.genre.includes(genre))
-}
 
 
 const $genre = document.getElementById('genre')
 const $movieName = document.getElementById('movieName')
 
 
-$genre.addEventListener('change', function(){
-    let selected = $genre.value
-    console.log(selected)
-    let movieName = $movieName.value
-    //let genreFilter = (movies, genre) => {return movies.filter(movie => movie.genres == genre)}
-    //let filtradas = genreFilter(movies,selected)
-    let filtradas = []//doubleSearch(movies,selected,movieName)
-    for(let pelicula of movies){
-        if(selected=='All'){
-            $moviesContainer.innerHTML = fillCards(movies)
-        }else if(pelicula.genres.includes(selected)){
-            filtradas.push(pelicula)
-            
-            $moviesContainer.innerHTML = fillCards(filtradas)
+
+function byGenre(names){
+    let genreSearch = $genre.options[$genre.selectedIndex].value
+    console.log(genreSearch)
+    let filtradas = []
+    if(genreSearch == 'All'){
+        return names
+    }else {
+        for(let movie of names){
+            if(movie.genres.includes(genreSearch)){
+                filtradas.push(movie)
+            }
         }
-
     }
-    console.log(filtradas)
-     //$moviesContainer.innerHTML = fillCards(filtradas);
-     console.log(filtradas)
 
+    return filtradas
+}
+
+function byName(movies,name){
     
-})
-
-
-$movieName.addEventListener('input',function (e){
-    let movieName = $movieName.value
+    let movieName = name
     let filtradas = []
     
     for(let pelicula of movies){
@@ -86,10 +77,32 @@ $movieName.addEventListener('input',function (e){
             filtradas.push(pelicula)
         }
     }
-    console.log(filtradas)
+    return filtradas
 
-
-    $moviesContainer.innerHTML = fillCards(filtradas)
+}
+$movieName.addEventListener('input',function (e){
+    const filterByName = byName(movies,$movieName.value)
+    const filterByGenre = byGenre(filterByName)
+    console.log(filterByGenre)
+    if(filterByGenre.length == 0){
+        let messageEmpty = `<h3>No match</h3>`
+        $moviesContainer.innerHTML = `<h3 style='color black'>No match</h3>`
+    }else {
+        $moviesContainer.innerHTML = fillCards(filterByGenre)
+    }
+    
 })
+$genre.addEventListener('change',function(e){
+    const filterByName = byName(movies,$movieName.value)
+    const filterByGenre = byGenre(filterByName)
+    console.log(filterByGenre)
+    if(filterByGenre.length == 0){
+        let messageEmpty = `<h3 style='color black'>No match</h3>`
+        $moviesContainer.innerHTML = `<h3 style='color black'>No match</h3>`
+    }else {
+        $moviesContainer.innerHTML = fillCards(filterByGenre)
+    }
+})
+
 
 
