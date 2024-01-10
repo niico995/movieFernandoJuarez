@@ -44,11 +44,12 @@ lupa.addEventListener('blur',function(e){
 //Buscador por genero
 
 const $genre = document.getElementById('genre')
+const $movieName = document.getElementById('movieName')
 
 $genre.addEventListener('change',function(){
     let selected = $genre.value
     console.log(selected)
-
+    let movieName = $movieName.value
     //let genreFilter = (movies, genre) => {return movies.filter(movie => movie.genres == genre)}
     //let filtradas = genreFilter(movies,selected)
     let filtradas = []
@@ -66,7 +67,6 @@ $genre.addEventListener('change',function(){
 
 })
 
-const $movieName = document.getElementById('movieName')
 
 $movieName.addEventListener('input',function (e){
     let movieName = $movieName.value
