@@ -66,7 +66,15 @@ nav a{
     text-decoration: none;
     color: var(--claro);
 }
+nav a:active {
+    border: 2px solid var(--principal);
+}
 
+.selected {
+    border: 2px solid var(--principal);
+    background-color: var(--claro);
+    color: var(--negro);
+}
 .hero {
     width:100%;
     height: 200px;
@@ -74,7 +82,7 @@ nav a{
 }
 
 .lorem{
-    width: 90%;
+    width: 70%;
     text-align: center;
     padding: 10px;
     margin: 25px 15px;
@@ -125,6 +133,51 @@ footer {
     font-size: 32px;
 }
 
+/* Selectores */
+.selection {
+    margin: 30px 0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+.buscadorCerrado {
+    width: 25px;
+    height: 25px;
+    border: none;
+    font-size: 18px;
+}
+
+.buscadorAbierto {
+    width: 150px;
+    height: 20px;
+
+}
+
+.buscadorAbierto{
+    border: none;
+    border-bottom: 1px solid var(--claro);
+}
+
+.labelForGenre {
+    font-family: var(--texto);
+    font-size: 14px;
+}
+#genre {
+    height: 20px;
+    width: 150px;
+    border: none;
+    border-bottom: 1px solid var(--claro);
+    font-size: 14px;
+}
+select * { 
+    color: var(--claro);
+    background-color: var(--principal);
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+}
 
 #moviesList {
     display: flex;
@@ -138,17 +191,21 @@ footer {
 .card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 300px;
-    height: 500px;
+    height: 450px;
     margin: 10px 0;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 2px 4px 10px var(--principal);
     align-content: center;
     gap: 5px;
+    overflow-y: auto;
 }
-
+::-webkit-scrollbar {
+    display: none;
+  }
 .cardImg {
-    border-radius: 10px;
+    border-radius: 5px;
     object-fit: contain;
 }
 
@@ -163,6 +220,86 @@ footer {
     width: 80%;
     text-align: center;
     font-family: var(--texto);
+}
+
+
+.btnMovie {
+    background-color: var(--principal);
+    width: 75px;
+    height: 30px;
+    text-decoration: none;
+    color: var(--claro);
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+.btnMovie:hover {
+    box-shadow: 2px 2px 4px var(--principal);
+}
+
+
+/* Movie Detailed */
+.movieSelected {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.movieDetailed {
+    width: 60%;
+    margin-top: 50px;
+}
+.movieContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    box-shadow: 2px 4px 10px var(--principal);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.movieInfo {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.detailImg{
+    width: 500px;
+    border-radius: 5px;
+}
+.movieData {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 20px;
+}
+.movieData h2{
+    font-family: var(--titular);
+    font-size: 28px;
+}
+.tagline {
+    font-size: 14px;
+    font-family: var(--texto);
+}
+.movieTable {
+    display: flex;
+    justify-content: space-between;
+}
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+tr,td {
+    width: 200px;
+    height: 40px;
+    border: 2px solid black;
+    padding: 10px;
+}
+.overview {
+    width: 70%;
+    font-size: 18px;
 }
 @media (min-width: 767px) {
     header {
@@ -191,7 +328,7 @@ footer {
         border-radius: 5px;
         padding: 4px;
     }
-    
+   
 
     .callToAction {
         width: 60%;
@@ -273,4 +410,7 @@ footer {
     #moviesList {
         width: 80%;
     }
+
+
+    /*  */
 }

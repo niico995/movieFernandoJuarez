@@ -30,14 +30,44 @@
       <a class="back" href="./index.html"><h1>MovieStack</h1></a>
       <nav>
         <a href="./index.html">Home</a>
-        <a href="#">Movies</a>
+        <a class="selected" href="#">Movies</a>
         <a href="#">Favs</a>
       </nav>
     </header>
 
     <main>
       <div class="movieBanner">
-        <h1>Nuestras Pelis</h1>
+        <h1>Our Movies</h1>
+      </div>
+
+      <div class="selection" id="selection">
+        <label class="labelForGenre" for="genre"
+          >Choose your favourite genre
+          <select name="genders" id="genre">
+            <option value="All" selected >All</option>
+            <option value="Horror">Horror</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Action">Action</option>
+            <option value="Drama">Drama</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Crime">Crime</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Animation">Animation</option>
+            <option value="Family">Family</option>
+            <option value="Romance">Romance</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="History">History</option>
+          </select>
+        </label>
+
+        <input
+          type="text"
+          id="movieName"
+          placeholder="&#128269;"
+          class="buscadorCerrado"
+        />
       </div>
 
       <section id="moviesList"></section>
