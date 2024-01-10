@@ -43,34 +43,44 @@ lupa.addEventListener('blur',function(e){
 
 //Buscador por genero
 
+function doubleSearch(movies,genre,name){
+    return movies.filter(movie => movie.name === name && movie.genre.includes(genre))
+}
+
+
 const $genre = document.getElementById('genre')
 const $movieName = document.getElementById('movieName')
 
-$genre.addEventListener('change',function(){
+
+$genre.addEventListener('change', function(){
     let selected = $genre.value
     console.log(selected)
     let movieName = $movieName.value
     //let genreFilter = (movies, genre) => {return movies.filter(movie => movie.genres == genre)}
     //let filtradas = genreFilter(movies,selected)
-    let filtradas = []
+    let filtradas = []//doubleSearch(movies,selected,movieName)
     for(let pelicula of movies){
         if(selected=='All'){
             $moviesContainer.innerHTML = fillCards(movies)
         }else if(pelicula.genres.includes(selected)){
             filtradas.push(pelicula)
+            
             $moviesContainer.innerHTML = fillCards(filtradas)
         }
-        
+
     }
     console.log(filtradas)
+     //$moviesContainer.innerHTML = fillCards(filtradas);
+     console.log(filtradas)
 
-
+    
 })
 
 
 $movieName.addEventListener('input',function (e){
     let movieName = $movieName.value
     let filtradas = []
+    
     for(let pelicula of movies){
         if(pelicula.title.toLowerCase().includes(movieName.toLowerCase())){
             filtradas.push(pelicula)
@@ -81,3 +91,5 @@ $movieName.addEventListener('input',function (e){
 
     $moviesContainer.innerHTML = fillCards(filtradas)
 })
+
+
