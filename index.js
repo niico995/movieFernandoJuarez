@@ -3,10 +3,35 @@ const $genre = document.getElementById("genre");
 const $movieName = document.getElementById("movieName");
 const lupa = document.getElementById("movieName");
 
+//const apiKey = "0ff70d54-dc0b-4262-9c3d-776cb0f34dbd";
+
+// const newMovies = []
+
+// fetch("https://moviestack.onrender.com/api/movies", {
+//   headers: {
+//     "X-API-Key": apiKey,
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((peliculas) => {
+//     console.log(peliculas)
+//     newMovies.push(peliculas.movies.filter(pelicula => pelicula != null));
+//     console.log(newMovies);
+//   })
+//   .catch((e) => console.error(e));
+
+//   console.log("Arreglo nuevo"+newMovies);
+
+
+let movies = newMovies
+console.log(movies)
+
+if(movies != undefined){
+
 function cardStructure(movie) {
   return `
     <div class='card'>
-        <img class='cardImg' src='${movie.image}' alt='Movie image' />
+       
         <div>
             <h2>${movie.title}</h2>
             <p>${movie.overview}</p>
@@ -20,15 +45,13 @@ function cardStructure(movie) {
 
 function fillCards(movies) {
   let cartitas = "";
-  for (let movie of movies) {
-    cartitas += cardStructure(movie);
+  for (let i = 0;i <movies.length;i++) {
+    cartitas += cardStructure(newMovies[i]);
   }
   return cartitas;
 }
 
 $moviesContainer.innerHTML = fillCards(movies);
-
-
 
 
 lupa.addEventListener("click", function (e) {
@@ -58,17 +81,34 @@ function byGenre(names) {
   return filtradas;
 }
 
-function byName(movies, name) {
+//function byName(newMovies, name) {
+//  let movieName = name;
+//  let filtradas = [];
+//
+//  for (let pelicula of newMovies) {
+//    console.log(pelicula)
+//    if (pelicula.title.toLowerCase().includes(movieName.toLowerCase())) {
+//      filtradas.push(pelicula);
+//    }
+//  }
+//  return filtradas;
+//}
+
+function byName(newMovies, name) {
   let movieName = name;
   let filtradas = [];
 
-  for (let pelicula of movies) {
-    if (pelicula.title.toLowerCase().includes(movieName.toLowerCase())) {
-      filtradas.push(pelicula);
+  for (let i =0; i <movies.length; i++) {
+
+    console.log(movies[i].title)
+    console.log(movieName, newMovies[i].title);
+    if (movies[i].title.toLowerCase().includes(movieName.toLowerCase())) {
+      console.log(movieName, newMovies[i].title);
+      filtradas.push(movies);
     }
   }
   return filtradas;
-}
+} 
 
 $movieName.addEventListener("input", function (e) {
   const filterByName = byName(movies, $movieName.value);
@@ -83,7 +123,7 @@ $movieName.addEventListener("input", function (e) {
 });
 
 $genre.addEventListener("change", function (e) {
-  const filterByName = byName(movies, $movieName.value);
+  const filterByName = byName(newMovies, $movieName.value);
   const filterByGenre = byGenre(filterByName);
   console.log(filterByGenre);
   if (filterByGenre.length == 0) {
@@ -96,7 +136,7 @@ $genre.addEventListener("change", function (e) {
 
 // genres
 
-const generos = movies.map((movie) => movie.genres);
+const generos = newMovies.map((movie) => movie.genres);
 console.log(generos);
 
 const listGenres = generos.flat();
@@ -130,3 +170,8 @@ function fillOption(options) {
 }
 
 $genre.innerHTML += fillOption(noRepeatGenres(listGenres));
+
+
+}else {
+  $moviesContainer.innerHTML = `<h3>No movies founded</h3>`
+}

@@ -112,7 +112,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
 }
+
 
 
 /* Movies */
@@ -209,12 +211,13 @@ select * {
     object-fit: contain;
 }
 
-.card div {
+.textCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
+    margin-left: 5px;
 }
 .card p {
     width: 80%;
@@ -222,6 +225,14 @@ select * {
     font-family: var(--texto);
 }
 
+.buttons {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    margin-left: 15px;
+}
 
 .btnMovie {
     background-color: var(--principal);
@@ -233,9 +244,33 @@ select * {
     border-radius: 5px;
     margin-bottom: 4px;
 }
-.btnMovie:hover {
+.btnFavorite:hover,.btnMovie:hover {
     box-shadow: 2px 2px 4px var(--principal);
 }
+.btnFavorite2 {
+    background-color: rgba(255, 255, 255, 0);
+    width: 75px;
+    height: 30px;
+    text-decoration: none;
+    color: var(--claro);
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btnFavorite {
+    background-color: var(--principal);
+    color: #D2CCFF;
+    width: 75px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+}
+
 
 
 /* Movie Detailed */
