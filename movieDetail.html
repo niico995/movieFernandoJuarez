@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="./assets/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +13,8 @@
       rel="stylesheet"
     />
 
-    <title>MovieStack | Home</title>
+    <title>Document</title>
+
     <link
       rel="shortcut icon"
       href="./assets/img/Moviestack_favicon.png"
@@ -29,29 +31,17 @@
       /></a>
       <a class="back" href="./index.html"><h1>MovieStack</h1></a>
       <nav>
-        <a class="selected" href="#">Home</a>
+        <a href="./index.html">Home</a>
         <a href="./movies.html">Movies</a>
         <a href="./favs.html">Favs</a>
       </nav>
     </header>
 
-    <main>
-      <img class="hero" src="./assets/img/hero.jpg" alt="banner peliculas" />
-
-      <p class="lorem">
-        Welcome to our cinema portal, your one-stop destination for all things
-        movies! We provide comprehensive information on a wide array of films,
-        from blockbusters to indie gems. Dive into our extensive database for
-        movie synopses, cast details, runtime, ratings, and more. Stay updated
-        with the latest releases and upcoming features. Experience the magic of
-        cinema like never before, right here with us!
-      </p>
-
-      <a class="callToAction" href="./movies.html"
-        ><h2>¡Descubri Nuestro Catalogo!</h2></a
-      >
+    <main class="movieSelected">
+      <div id="movieDetailed" class="movieDetailed"></div>
     </main>
-
+    <script src="./newMovies.js"></script>
+    <script src="./detailMovie.js"></script>
     <footer>
       <h2>MindHub - Cohort N°53</h2>
     </footer>
